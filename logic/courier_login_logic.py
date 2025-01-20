@@ -26,5 +26,10 @@ class CourierLoginLogic(BaseClassLogic):
         self.check_response_status_code(response, 200)
 
         result = json.loads(response.text)
-        assert 'id' in result and result.get('id') is not None and isinstance(result.get('id'),
-                                                                              int), 'Не удалось авторизоваться'
+        assert 'id' in result and result.get('id') is not None and isinstance(result.get('id'), int), \
+            'Не удалось авторизоваться'
+
+    @allure.step('Получение id курьера')
+    def get_courier_id(self, response: Response):
+        result = json.loads(response.text)
+        return result.get('id')

@@ -28,11 +28,10 @@ class CreateCourierLogic(BaseClassLogic):
         self.check_response_status_code(response, 201)
 
         response = json.loads(response.text)
-        assert response.get('ok'),'Не удалось создать курьера'
+        assert response.get('ok'), 'Не удалось создать курьера'
 
     @allure.step('Регистрация нового курьера и получение его логина и пароля')
     def register_new_courier_and_return_login_password(self):
-
         login = generate_random_string(10)
         password = generate_random_string(10)
         first_name = generate_random_string(10)

@@ -57,15 +57,3 @@ class TestCreateCourier:
         response = courier_logic.create_courier(login, generate_random_string(10), generate_random_string(10))
         courier_logic.check_response_status_code(response, 409)
         courier_logic.check_error_message(response, 'Этот логин уже используется. Попробуйте другой.')
-
-
-
-
-
-
-
-
-
-
-
-

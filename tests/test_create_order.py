@@ -23,5 +23,3 @@ class TestCreateOrder:
                                              color
                                              )
         create_order.check_create_order(response)
-
-

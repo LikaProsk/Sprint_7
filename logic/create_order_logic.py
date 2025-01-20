@@ -7,6 +7,7 @@ from requests import Response
 from config import base_url
 from logic.base_class_logic import BaseClassLogic
 
+
 @allure.step('Создание нового заказа')
 class CreateOrderLogic(BaseClassLogic):
 
@@ -41,5 +42,5 @@ class CreateOrderLogic(BaseClassLogic):
         self.check_response_status_code(response, 201)
 
         result = json.loads(response.text)
-        assert 'track' in result and result.get('track') is not None and isinstance(result.get('track'), int),'Не удалось создать заказ'
-
+        assert 'track' in result and result.get('track') is not None and isinstance(result.get('track'),
+                                                                                    int), 'Не удалось создать заказ'
